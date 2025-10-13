@@ -8,33 +8,63 @@
     },
     {
       "id": 1,
+      "title": "Brand Story",
+      "url": "/brandstory",
+      "icon": "📖"
+    },
+    {
+      "id": 2,
+      "title": "Markenstrategie",
+      "url": "/markenstrategie",
+      "icon": "🎯"
+    },
+    {
+      "id": 3,
       "title": "Logos",
       "url": "/logos",
       "icon": "⭐"
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "Farben",
       "url": "/farben",
       "icon": "🎨"
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "Typographie",
       "url": "/typographie",
       "icon": "🔤"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "Tone & Voice",
       "url": "/toneandvoice",
       "icon": "💬"
     },
     {
-      "id": 5,
+      "id": 7,
       "title": "Bildsprache",
       "url": "/bildsprache",
       "icon": "📸"
+    },
+    {
+      "id": 8,
+      "title": "Iconografie",
+      "url": "/iconografie",
+      "icon": "✨"
+    },
+    {
+      "id": 9,
+      "title": "Bewegtbild",
+      "url": "/bewegtbild",
+      "icon": "🎬"
+    },
+    {
+      "id": 10,
+      "title": "Social Media",
+      "url": "/socialmedia",
+      "icon": "📱"
     }
   ],
   "colors": [

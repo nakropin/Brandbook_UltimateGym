@@ -11,7 +11,6 @@ export default function Farben() {
 
   return (
     <>
-      <h1 className="font-jersey text-3xl mb-4">Farben</h1>
       <div className="flex flex-row gap-4">
         <ColorGrid
           colors={brandbook.colors}
