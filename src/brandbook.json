@@ -1,0 +1,82 @@
+{
+  "sections": [
+    {
+      "id": 0,
+      "title": "Dashboard",
+      "url": "/",
+      "icon": "🏠"
+    },
+    {
+      "id": 1,
+      "title": "Logos",
+      "url": "/logos",
+      "icon": "⭐"
+    },
+    {
+      "id": 2,
+      "title": "Farben",
+      "url": "/farben",
+      "icon": "🎨"
+    },
+    {
+      "id": 3,
+      "title": "Typographie",
+      "url": "/typographie",
+      "icon": "🔤"
+    },
+    {
+      "id": 4,
+      "title": "Tone & Voice",
+      "url": "/toneandvoice",
+      "icon": "💬"
+    },
+    {
+      "id": 5,
+      "title": "Bildsprache",
+      "url": "/bildsprache",
+      "icon": "📸"
+    }
+  ],
+  "colors": [
+    {
+      "name": "white",
+      "hexcolor": "#ffffff",
+      "description": "Für Texte und als Minimalkontrast in Kombi-Nutzung mit “Dunkelblau”."
+    },
+    {
+      "name": "black_blue",
+      "hexcolor": "#171717",
+      "description": "Für Texte und Überschriften auf dunklen und farbigen Hintergrund sowie Papierkanten."
+    },
+    {
+      "name": "dark_blue",
+      "hexcolor": "#13182a",
+      "description": "Hintergrundfarbe, kann je nach Kontrast auch als Überschrift-Farbe auf weißem Hintergund genutzt werden."
+    },
+    {
+      "name": "ultimate_blue",
+      "hexcolor": "#5ba8ef",
+      "description": "Gym Akzentfarbe und Sport-Farbe für das “UltiMATES” Programm."
+    },
+    {
+      "name": "standup_red",
+      "hexcolor": "#b23535",
+      "description": "Hauptfarbe für MMA, Ringen und Wettkampf-training. Kann als Hintergrund, Elemente und für Überschriften genutzt werden."
+    },
+    {
+      "name": "boxing_yellow",
+      "hexcolor": "#cca94f",
+      "description": "Hauptfarbe für alle Box-Kurse. Kann als Hintergrund, Elemente und für Überschriften genutzt werden."
+    },
+    {
+      "name": "fitness_green",
+      "hexcolor": "#5c8d58",
+      "description": "Hauptfarbe für Krav Maga und Ultimate Fit. Kann als Hintergrund, Elemente und für Überschriften genutzt werden."
+    },
+    {
+      "name": "frontera_blue",
+      "hexcolor": "#3576b2",
+      "description": "Hauptfarbe für Brazilian Jiu Jitsu. Kann als Hintergrund, Elemente und für Überschriften genutzt werden."
+    }
+  ]
+}
