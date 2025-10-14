@@ -1,4 +1,4 @@
-export default function Bildsprache() {
+export default function Bewegtbild() {
   return (
     <div>
       <h1>UNDER CONSTRUCTION</h1>

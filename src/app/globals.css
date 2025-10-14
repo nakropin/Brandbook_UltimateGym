@@ -13,6 +13,11 @@
 
 @theme inline {
   --font-akzidenz: var(--font-akzidenz);
+  --font-akzidenz-condensed: var(--font-akzidenz-condensed);
+  --font-akzidenz-condensed-alt: var(--font-akzidenz-condensed-alt);
+  --font-akzidenz-extended: var(--font-akzidenz-extended);
+  --font-akzidenz-light: var(--font-akzidenz-light);
+  --font-akzidenz-xbold-alt: var(--font-akzidenz-xbold-alt);
   --font-jersey: var(--font-jersey);
 }
 
