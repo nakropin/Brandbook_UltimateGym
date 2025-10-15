@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
+:root {
+  --header-height: 156px;
+}
+
 @theme {
   --color-white: #ffffff;
-  --color-black_blue: #171717;
+  --color-black_blue: #0a0d1b;
   --color-dark_blue: #13182a;
   --color-ultimate_blue: #5ba8ef;
   --color-standup_red: #b23535;
   --color-boxing_yellow: #cca94f;
   --color-fitness_green: #5c8d58;
   --color-frontera_blue: #3576b2;
+  --spacing-screen-minus-header: calc(100vh - var(--header-height));
 }
 
 @theme inline {
