@@ -413,6 +413,38 @@
       "weekday": "Ferienzeit",
       "category": "Schulferien Bayern",
       "marketing_potential": "Feriencamps, Gutscheine"
+    },
+    {
+      "start": "2025-12-14",
+      "end": "2025-12-14",
+      "title": "Silvesterabend Einkaufsaktion",
+      "weekday": "Freitag",
+      "category": "Saisonale Akquiseaktionen",
+      "marketing_potential": "Einkaufsaktion im Vorweihnachtsgeschäft"
+    },
+    {
+      "start": "2025-12-31",
+      "end": "2025-12-31",
+      "title": "Neujahrsempfang Einkaufsaktion",
+      "weekday": "Samstag",
+      "category": "Saisonale Akquiseaktionen",
+      "marketing_potential": "Silvester-Einkaufsaktion"
+    },
+    {
+      "start": "2026-03-08",
+      "end": "2026-03-08",
+      "title": "Frauentag Kampagne #JoinOurFight",
+      "weekday": "Samstag",
+      "category": "Bundesliga Kampagnen",
+      "marketing_potential": "Kostenlose Selbstverteidigungskurse, Frauen-Workshops"
+    },
+    {
+      "start": "2025-12-31",
+      "end": "2025-12-31",
+      "title": "Silvesterabend Einkaufsaktion",
+      "weekday": "Sonntag",
+      "category": "Saisonale Akquiseaktionen Regional",
+      "marketing_potential": "[WICHTIG] Es ist wichtig zu wissen: Nur in Augsburg! Nutzt dieses 'Lokale Highlight'!"
     }
   ]
 }
