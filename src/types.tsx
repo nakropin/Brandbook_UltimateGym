@@ -18,3 +18,13 @@ export interface ColorGridProps {
   onColorHover: (color: Color) => void;
   onColorLeave: () => void;
 }
+
+export interface Event {
+  start: string;
+  end: string;
+  title: string;
+  weekday: string;
+  category: string;
+  marketing_potential: string;
+  color?: string;
+}
