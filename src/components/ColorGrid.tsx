@@ -1,5 +1,5 @@
 import ColorTile from "./ColorTile";
-import { ColorGridProps } from "@/types";
+import { ColorGridProps } from "@/types/types";
 
 // Sub-Komponenten als named exports
 export default function ColorGrid({

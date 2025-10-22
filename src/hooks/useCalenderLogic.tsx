@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import brandbook from "@/brandbook.json";
-import { Event } from "@/types";
+import { Event } from "@/types/types";
 import { CATEGORY_COLORS } from "@/constants/calendar";
 
 export default function useCalendarLogic() {

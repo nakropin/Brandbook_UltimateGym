@@ -1,4 +1,4 @@
-import { ColorTileProps } from "@/types";
+import { ColorTileProps } from "@/types/types";
 
 export default function ColorTile({ name, hexcolor }: ColorTileProps) {
   const colorWithoutHash = hexcolor.slice(1);

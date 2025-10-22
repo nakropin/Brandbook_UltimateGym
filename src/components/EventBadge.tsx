@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { Event } from "@/types";
+import { Event } from "@/types/types";
 
 interface EventBadgeProps {
   event: Event;

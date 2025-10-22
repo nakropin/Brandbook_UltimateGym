@@ -1,4 +1,4 @@
-import { ColorInfoProps } from "@/types";
+import { ColorInfoProps } from "@/types/types";
 
 export default function ColorInfo({ hoveredColor }: ColorInfoProps) {
   return (
