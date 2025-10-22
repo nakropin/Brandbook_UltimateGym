@@ -24,3 +24,5 @@ export const CATEGORY_COLORS: Record<string, string> = {
   Firmenveranstaltung: "bg-yellow-100 border-yellow-300",
   Workshop: "bg-orange-100 border-orange-300",
 };
+
+//Test-Kommentar
