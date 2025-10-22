@@ -18,7 +18,7 @@ import {
 } from "@/fonts";
 import { SessionProvider } from "next-auth/react";
 
-export default function Layout({ children, session }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const title = brandbook.sections.find((s) => s.url === pathname);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -43,7 +43,7 @@ export default function Layout({ children, session }: { children: React.ReactNod
           <main className="flex-1 overflow-y-auto transition-all duration-300">
             <div className="p-4 pr-8 overflow-x-hidden">
               <SubHeader title={title?.title} />
-              <SessionProvider session={session}>{children}</SessionProvider>
+              <SessionProvider>{children}</SessionProvider>
             </div>
           </main>
         </div>
