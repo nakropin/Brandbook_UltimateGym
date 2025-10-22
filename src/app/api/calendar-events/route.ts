@@ -16,9 +16,19 @@ interface CalendarEvent {
 }
 
 export async function GET(req: NextRequest) {
-  const token = await getToken({ req });
+  const token = await getToken({
+    req,
+    secret: process.env.NEXTAUTH_SECRET,
+  });
+
+  console.log("Token:", token);
+  console.log("AccessToken:", token?.accessToken);
+
   if (!token)
     return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+
+  if (!token.accessToken)
+    return NextResponse.json({ error: "No accessToken" }, { status: 401 });
 
   const url = new URL(req.url);
   const calendarIdsParam =
