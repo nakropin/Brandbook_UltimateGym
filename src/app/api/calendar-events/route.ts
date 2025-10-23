@@ -66,18 +66,36 @@ export async function GET(req: NextRequest) {
   const calendarIds = calendarIdsParam.split(",");
   const allEvents: CalendarEvent[] = [];
 
+  // Datums-Bereich: Von 1 Jahr in der Vergangenheit bis 2 Jahre in der Zukunft
+  const timeMin = new Date();
+  timeMin.setFullYear(timeMin.getFullYear() - 1);
+
+  const timeMax = new Date();
+  timeMax.setFullYear(timeMax.getFullYear() + 2);
+
   console.log(`=== FETCHING ${calendarIds.length} CALENDARS ===`);
+  console.log(
+    `Time range: ${timeMin.toISOString()} to ${timeMax.toISOString()}`
+  );
 
   for (const calendarId of calendarIds) {
     try {
-      const googleUrl = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(
-        calendarId
-      )}/events?singleEvents=true&orderBy=startTime`;
+      const googleUrl = new URL(
+        `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(
+          calendarId
+        )}/events`
+      );
+
+      // Query Parameter hinzufügen
+      googleUrl.searchParams.append("singleEvents", "true");
+      googleUrl.searchParams.append("orderBy", "startTime");
+      googleUrl.searchParams.append("timeMin", timeMin.toISOString());
+      googleUrl.searchParams.append("timeMax", timeMax.toISOString());
 
       console.log(`Fetching calendar: ${calendarId}`);
-      console.log(`URL: ${googleUrl}`);
+      console.log(`URL: ${googleUrl.toString()}`);
 
-      const response = await fetch(googleUrl, {
+      const response = await fetch(googleUrl.toString(), {
         headers: {
           Authorization: `Bearer ${token.accessToken}`,
         },

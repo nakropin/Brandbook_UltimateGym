@@ -28,3 +28,10 @@ export interface Event {
   marketing_potential: string;
   color?: string;
 }
+
+export interface FullCalendarEvent {
+  id: string;
+  title: string;
+  start?: string;
+  end?: string;
+}
