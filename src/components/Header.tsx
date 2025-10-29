@@ -13,7 +13,7 @@ export default function Header() {
         />
       </Link>
       <div className="flex flex-row">
-        <h1 className="font-jersey text-3xl">
+        <h1 className="font-akzidenz-condensed text-3xl">
           BRAND BOOK <span className="font-akzidenz font-bold">- </span>INTERNAL
           USE ONLY
         </h1>

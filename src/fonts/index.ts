@@ -1,11 +1,5 @@
 import localFont from "next/font/local";
 
-export const jersey = localFont({
-  src: "./Jersey M54.ttf",
-  variable: "--font-jersey",
-  display: "swap",
-});
-
 // Normale Breite (Standard)
 export const akzidenz = localFont({
   src: [
@@ -277,5 +271,4 @@ export const fontVariables = {
   akzidenzExtended: "--font-akzidenz-extended",
   akzidenzLight: "--font-akzidenz-light",
   akzidenzXBoldAlt: "--font-akzidenz-xbold-alt",
-  jersey: "--font-jersey",
 };

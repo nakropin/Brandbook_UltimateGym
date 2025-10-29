@@ -1,10 +1,12 @@
 import { ColorInfoProps } from "@/types/types";
 
 export default function ColorInfo({ hoveredColor }: ColorInfoProps) {
+  const headline = "font-akzidenz-condensed font-bold text-2xl";
+
   return (
     <div className="w-1/2 flex-[1_1_0%] space-y-4">
       <section className="h-32">
-        <h3 className="font-jersey">Ultimate Gym Farbpalette</h3>
+        <h3 className={`${headline}`}>Ultimate Gym Farbpalette</h3>
         <p>
           Wenn vom Ultimate Gym als Marke oder als eigenständige Entität
           gesprochen wird, wird die Farbpalette &quot;Ultimate Gym&quot;
@@ -13,8 +15,8 @@ export default function ColorInfo({ hoveredColor }: ColorInfoProps) {
         </p>
       </section>
 
-      <section>
-        <h3 className="font-jersey">Colorcode Sportarten</h3>
+      <section className="pb-4">
+        <h3 className={`${headline}`}>Colorcode Sportarten</h3>
         <p className="mb-2">
           Abhängig von der Sportart wird eine andere Hauptfarbe für Designs
           genutzt. Jeder Kurs kann in eine von vier Sport-Kategorien eingeteilt
@@ -29,8 +31,8 @@ export default function ColorInfo({ hoveredColor }: ColorInfoProps) {
       </section>
 
       {hoveredColor?.description && (
-        <div className="p-4 bg-gray-100 rounded">
-          <h4 className="font-bold">
+        <div className="-m-4 p-4 bg-gray-100 rounded">
+          <h4 className={`${headline}`}>
             {hoveredColor.name.replace("_", " ").toUpperCase()}
           </h4>
           <p>{hoveredColor.description}</p>

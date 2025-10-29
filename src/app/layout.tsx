@@ -13,8 +13,7 @@ import {
   akzidenzCondensedAlt,
   akzidenzExtended,
   akzidenzLight,
-  akzidenzXBoldAlt,
-  jersey,
+  akzidenzXBoldAlt
 } from "@/fonts";
 import { SessionProvider } from "next-auth/react";
 
@@ -33,7 +32,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         ${akzidenzExtended.variable}
         ${akzidenzLight.variable}
         ${akzidenzXBoldAlt.variable}
-        ${jersey.variable}
       `}
     >
       <body className="h-screen w-screen font-akzidenz font-normal flex flex-col">
