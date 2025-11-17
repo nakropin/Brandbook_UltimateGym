@@ -108,5 +108,94 @@
       "hexcolor": "#3576b2",
       "description": "Hauptfarbe für Brazilian Jiu Jitsu. Kann als Hintergrund, Elemente und für Überschriften genutzt werden."
     }
+  ],
+  "floorplan": {
+    "Augsburg": [
+      {
+        "name": "Lampenhöhe",
+        "hight": "3,6m"
+      },
+      {
+        "name": "Querbalkenhöhe",
+        "hight": "3,8m"
+      },
+      {
+        "name": "Maximale Hallenhöhe (An der Spitze)",
+        "hight": "4,65m"
+      }
+    ],
+    "Königsbrunn": [
+      {
+        "name": "Lampenhöhe",
+        "hight": "3,6m"
+      }
+    ]
+  },
+  "logos": [
+    {
+      "name": "Bildmarke",
+      "alt": "Die Bildmarke des Logos mit grafischer Erklärung wie die Sicherheitsabstände einzuhalten sind",
+      "path": "/Logoerklärung/BLACK_Ultimate Gym_Logo_Bildmarke_Erklärung.svg",
+      "description": "Dem Design der Ecken eines MMA-Rings nachempfunden, repräsentiert das Ultimate Gym Logo mit seinen scharfen Kanten und minimalistischen Anmutungen die Identität unserer Marke.",
+      "usage": [
+        "Merchandise",
+        "Equipment",
+        "Print-Produkte",
+        "Digital-Produkte"
+      ],
+      "safe_zones_x": 12.5,
+      "safe_zones_y": 12.5
+    },
+    {
+      "name": "Marke zentriert",
+      "alt": "Die Kombination aus Bild- und Wortmarke des Logos im quadratischen Format mit grafischer Erklärung wie die Sicherheitsabstände einzuhalten sind",
+      "path": "/Logoerklärung/BLACK_Ultimate Gym_Logo_Marke_zentriert_Erklärung.svg",
+      "description": "Hier werden Bild- und Wortmarke zu einem Logo kombiniert. Hierbei nutzt die Wortmarke die komplette Breite aus, die Bildmarke nimmt in dem Quadrat 75% der Höhe ein",
+      "usage": [
+        "Merchandise",
+        "Equipment",
+        "Print-Produkte",
+        "Digital-Produkte"
+      ],
+      "safe_zones_x": 12.5,
+      "safe_zones_y": 12.5
+    },
+    {
+      "name": "Wortmarke",
+      "alt": "Die Wortmarke des Logos mit grafischer Erklärung wie die Sicherheitsabstände einzuhalten sind",
+      "path": "/Logoerklärung/BLACK_Ultimate Gym_Logo_Wortmarke_Erklärung.svg",
+      "description": "Die Wortmarke allein wird selten verwendet. Durch den Wechsel von Regular zu Bold besinnt sie sich auf den Gym-Aspekt",
+      "usage": [
+        "Merchandise",
+        "Equipment",
+        "Print-Produkte",
+        "Digital-Produkte"
+      ],
+      "safe_zones_x": 12.5,
+      "safe_zones_y": 25
+    },
+    {
+      "name": "Marke",
+      "alt": "Die Kombination aus Bild- und Wortmarke des Logos mit grafischer Erklärung wie die Sicherheitsabstände einzuhalten sind",
+      "path": "/Logoerklärung/BLACK_Ultimate Gym_Logo_Marke_Erklärung.svg",
+      "description": "Hier werden Bild- und Wortmarke zu einem Logo kombiniert. Die Bildmarke nimmt die komplette Höhe ein, die Vertikalen Grenzen dessen setzt dabei das G auf seiner rechten Seite. Der horizontale Abstand zwischen dem U und G wird verdoppelt und als Abstand zwischen Wort- und Bildmarke verwendet",
+      "usage": [
+        "Merchandise",
+        "Equipment",
+        "Print-Produkte",
+        "Digital-Produkte"
+      ],
+      "safe_zones_x": 6.25,
+      "safe_zones_y": 12.5
+    },
+    {
+      "name": "Standort",
+      "alt": "Eine Kombination aus Bild- und Wortmarke mit Standortangabe mit grafischer Erklärung wie die Sicherheitsabstände einzuhalten sind",
+      "path": "/Logoerklärung/BLACK_Ultimate Gym_Logo_Standort_Erklärung.svg",
+      "description": "Hier werden Bild- und Wortmarke mit einer Standortangabe zu einem Logo kombiniert. Die Bildmarke nimmt die komplette Höhe ein, die Vertikalen Grenzen für die Standortangabe und Bildmarke setzt dabei das G auf seiner rechten Seite. Beide Elemente teilen sich den Platz im goldenen Schnitt auf, wobei der Standort das kleinere Stück einnimmt. Der horizontale Abstand zwischen dem U und G wird ebenfalls verwendet als Zeilenabstand beider Elemente, wobei der Abstand den Raum des kleineren Stücks einnimmt. Außerdem wird der verdoppelte Abstand zwischen Bildmarke und Wortmarke/Standortangabe verwendet.",
+      "usage": ["Print-Produkte"],
+      "safe_zones_x": 6.75,
+      "safe_zones_y": 12.5
+    }
   ]
 }

@@ -35,3 +35,13 @@ export interface FullCalendarEvent {
   start?: string;
   end?: string;
 }
+
+export interface Logo {
+  name: string;
+  alt: string;
+  path: string;
+  description: string;
+  usage: string[];
+  safe_zones_x: number;
+  safe_zones_y: number;
+}

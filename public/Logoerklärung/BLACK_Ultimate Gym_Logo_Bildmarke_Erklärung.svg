@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2500 2500">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #13182a;
+        stroke-width: 10px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke: #5ba8ef;
+        stroke-width: 5px;
+      }
+
+      .cls-3 {
+        fill: #5ba8ef;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        font-family: AkzidenzGroteskBQ-Medium, 'Akzidenz-Grotesk BQ';
+        font-size: 64px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <g id="Base">
+    <g>
+      <polygon points="2113.22 1049.49 2113.22 721.5 1296.56 250 1296.56 2250 2113.22 1778.5 2113.22 1225.64 1662.95 1225.64 1662.95 1449.14 1889.72 1449.14 1889.72 1649.46 1520.06 1862.83 1520.06 637.1 1889.72 850.54 1889.72 1049.49 2113.22 1049.49"/>
+      <polygon points="979.94 1862.83 610.28 1649.46 610.28 592.47 386.78 721.5 386.78 1778.5 1203.44 2250 1203.44 250 979.94 379.03 979.94 1862.83"/>
+    </g>
+  </g>
+  <g id="Instructions">
+    <rect class="cls-2" width="2500" height="2500"/>
+    <line class="cls-2" y1="2250" x2="2500" y2="2250"/>
+    <line class="cls-2" y1="2000" x2="2500" y2="2000"/>
+    <line class="cls-2" y1="1750" x2="2500" y2="1750"/>
+    <line class="cls-2" y1="1500" x2="2500" y2="1500"/>
+    <line class="cls-2" y1="1250" x2="2500" y2="1250"/>
+    <line class="cls-2" y1="1000" x2="2500" y2="1000"/>
+    <line class="cls-2" y1="750" x2="2500" y2="750"/>
+    <line class="cls-2" y1="500" x2="2500" y2="500"/>
+    <line class="cls-2" y1="250" x2="2500" y2="250"/>
+    <line class="cls-2" x1="2250" x2="2250" y2="2500"/>
+    <line class="cls-2" x1="2000" x2="2000" y2="2500"/>
+    <line class="cls-2" x1="1750" x2="1750" y2="2500"/>
+    <line class="cls-2" x1="1500" x2="1500" y2="2500"/>
+    <line class="cls-2" x1="1250" x2="1250" y2="2500"/>
+    <line class="cls-2" x1="1000" x2="1000" y2="2500"/>
+    <line class="cls-2" x1="750" x2="750" y2="2500"/>
+    <line class="cls-2" x1="500" x2="500" y2="2500"/>
+    <line class="cls-2" x1="250" x2="250" y2="2500"/>
+    <g>
+      <rect class="cls-3" width="250" height="250"/>
+      <text class="cls-4" transform="translate(27.86 148.63)"><tspan x="0" y="0">12,5 %</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="2248.64" width="250" height="250"/>
+      <text class="cls-4" transform="translate(2276.5 148.63)"><tspan x="0" y="0">12,5 %</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" y="2250" width="250" height="250"/>
+      <text class="cls-4" transform="translate(27.86 2398.63)"><tspan x="0" y="0">12,5 %</tspan></text>
+    </g>
+    <g>
+      <rect class="cls-3" x="2248.64" y="2250" width="250" height="250"/>
+      <text class="cls-4" transform="translate(2276.5 2398.63)"><tspan x="0" y="0">12,5 %</tspan></text>
+    </g>
+    <rect class="cls-1" x="250" y="250" width="2000" height="2000"/>
+  </g>
+</svg>
