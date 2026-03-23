@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { MONTH_NAMES } from "../constants/calendar";
+import { MONTH_NAMES } from "@/constants/calendar";
 
 interface MonthNavigationProps {
   currentDate: Date;

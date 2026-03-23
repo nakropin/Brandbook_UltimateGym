@@ -1,19 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import { getToken } from "next-auth/jwt";
-
-interface CalendarEvent {
-  id: string;
-  summary?: string;
-  start: {
-    dateTime?: string;
-    date?: string;
-  };
-  end: {
-    dateTime?: string;
-    date?: string;
-  };
-  [key: string]: unknown;
-}
+import { CalendarEvent } from "@/types/types";
 
 export async function GET(req: NextRequest) {
   const token = await getToken({
