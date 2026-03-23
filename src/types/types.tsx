@@ -50,6 +50,23 @@ export interface CalendarEvent {
   [key: string]: unknown;
 }
 
+export interface ProjectListItem {
+  fileId: string;
+  id: string;
+  titel: string;
+  kategorie: string;
+  verantwortlicher: string;
+  erstellt: string;
+  fällig: string;
+  cloud: string;
+}
+
+export interface ProjectDetail {
+  fileId: string;
+  metadata: ProjectListItem;
+  content: string;
+}
+
 export interface Logo {
   name: string;
   alt: string;
