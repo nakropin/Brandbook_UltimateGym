@@ -87,6 +87,7 @@ export default function Marketingstrategie() {
               error={error}
               events={events}
               onDateChange={handleDateChange}
+              onRetry={loadAllEvents}
             />
           </div>
           <div className="flex-1">

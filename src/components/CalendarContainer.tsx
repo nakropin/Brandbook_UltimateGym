@@ -7,6 +7,7 @@ interface CalendarContainerProps {
   error: string | null;
   events: FullCalendarEvent[];
   onDateChange?: (date: Date) => void;
+  onRetry?: () => void;
 }
 
 /**
@@ -18,6 +19,7 @@ export default function CalendarContainer({
   error,
   events,
   onDateChange,
+  onRetry,
 }: CalendarContainerProps) {
   /**
    * Wird aufgerufen, wenn FullCalendar das Datum ändert
@@ -31,8 +33,16 @@ export default function CalendarContainer({
   return (
     <div className="calendar-container">
       {error && (
-        <div className="mb-4 p-3 bg-red-100 text-red-800 rounded-lg">
-          {error}
+        <div className="mb-4 p-3 bg-red-100 text-red-800 rounded-lg flex items-center justify-between">
+          <span>{error}</span>
+          {onRetry && (
+            <button
+              onClick={onRetry}
+              className="ml-4 px-3 py-1 bg-red-200 hover:bg-red-300 rounded text-sm transition"
+            >
+              Erneut versuchen
+            </button>
+          )}
         </div>
       )}
 
