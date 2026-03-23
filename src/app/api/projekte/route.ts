@@ -29,7 +29,7 @@ async function fetchFileContent(
   accessToken: string
 ): Promise<string> {
   const res = await fetch(
-    `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
+    `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&supportsAllDrives=true`,
     { headers: { Authorization: `Bearer ${accessToken}` } }
   );
   if (!res.ok) throw new Error(`Failed to fetch file ${fileId}`);
@@ -69,10 +69,13 @@ export async function GET(req: NextRequest) {
       );
       listUrl.searchParams.set(
         "q",
-        `'${folderId}' in parents and mimeType = 'text/markdown' and trashed = false`
+        `'${folderId}' in parents and name contains '.md' and trashed = false`
       );
       listUrl.searchParams.set("fields", "files(id,name,mimeType),nextPageToken");
       listUrl.searchParams.set("pageSize", "100");
+      listUrl.searchParams.set("includeItemsFromAllDrives", "true");
+      listUrl.searchParams.set("supportsAllDrives", "true");
+      listUrl.searchParams.set("corpora", "allDrives");
       if (pageToken) listUrl.searchParams.set("pageToken", pageToken);
 
       const listRes = await fetch(listUrl.toString(), {
@@ -80,7 +83,8 @@ export async function GET(req: NextRequest) {
       });
 
       if (!listRes.ok) {
-        throw new Error(`Drive API error: ${listRes.status}`);
+        const errBody = await listRes.text();
+        throw new Error(`Drive API error: ${listRes.status} - ${errBody}`);
       }
 
       const data = (await listRes.json()) as DriveListResponse;

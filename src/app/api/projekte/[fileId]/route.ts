@@ -43,7 +43,7 @@ export async function GET(
   try {
     // First verify the file belongs to the expected folder
     const metaRes = await fetch(
-      `https://www.googleapis.com/drive/v3/files/${fileId}?fields=id,name,parents`,
+      `https://www.googleapis.com/drive/v3/files/${fileId}?fields=id,name,parents&supportsAllDrives=true`,
       { headers: { Authorization: `Bearer ${accessToken}` } }
     );
 
@@ -70,7 +70,7 @@ export async function GET(
 
     // Download file content
     const contentRes = await fetch(
-      `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
+      `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&supportsAllDrives=true`,
       { headers: { Authorization: `Bearer ${accessToken}` } }
     );
 
