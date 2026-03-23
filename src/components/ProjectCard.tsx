@@ -34,28 +34,28 @@ export default function ProjectCard({ project }: { project: ProjectListItem }) {
 
   return (
     <Link href={`/projekte/${project.fileId}`}>
-      <div className="p-4 bg-white border border-gray-200 rounded-lg hover:border-ultimate_blue hover:shadow-md transition cursor-pointer">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-gray-800 truncate">
-              {project.titel || project.id}
-            </h3>
-            {project.verantwortlicher && (
-              <p className="text-sm text-gray-500 mt-1">
-                {project.verantwortlicher}
-              </p>
-            )}
-          </div>
-          <span
-            className={`px-2 py-1 text-xs font-bold rounded shrink-0 ${badgeClass}`}
-          >
-            {project.kategorie}
+      <div className="flex items-center gap-4 p-3 bg-white border border-gray-200 rounded-lg hover:border-ultimate_blue hover:shadow-md transition cursor-pointer">
+        <span
+          className={`px-2 py-1 text-xs font-bold rounded shrink-0 ${badgeClass}`}
+        >
+          {project.kategorie}
+        </span>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-gray-800 truncate">
+            {project.titel || project.id}
+          </h3>
+        </div>
+        {project.verantwortlicher && (
+          <span className="text-sm text-gray-500 shrink-0">
+            {project.verantwortlicher}
           </span>
-        </div>
-        <div className="flex gap-4 mt-3 text-sm text-gray-500">
-          <span>Erstellt: {formatDate(project.erstellt)}</span>
-          <span>Fällig: {formatDate(project.fällig)}</span>
-        </div>
+        )}
+        <span className="text-sm text-gray-400 shrink-0">
+          {formatDate(project.erstellt)}
+        </span>
+        <span className="text-sm text-gray-400 shrink-0">
+          Fällig: {formatDate(project.fällig)}
+        </span>
       </div>
     </Link>
   );

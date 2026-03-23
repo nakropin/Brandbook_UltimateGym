@@ -121,7 +121,7 @@ export default function ProjektDetail() {
         <div className="flex items-start justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-800">
-              {metadata.titel || metadata.id}
+              {metadata.id}
             </h1>
             {metadata.verantwortlicher && (
               <p className="text-gray-500 mt-1">{metadata.verantwortlicher}</p>
@@ -151,8 +151,65 @@ export default function ProjektDetail() {
       </div>
 
       {/* Markdown Content */}
-      <div className="bg-white border border-gray-200 rounded-lg p-6 prose prose-gray max-w-none">
-        <Markdown>{content}</Markdown>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 max-w-none markdown-content">
+        <Markdown
+          components={{
+            h1: ({ children }) => (
+              <h1 className="text-3xl font-akzidenz-extended font-bold text-gray-900 mt-10 mb-4 pb-3 border-b-2 border-gray-300 first:mt-0 uppercase tracking-wide">
+                {children}
+              </h1>
+            ),
+            h2: ({ children }) => (
+              <h2 className="text-2xl font-akzidenz-condensed font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-200 uppercase tracking-wide">
+                {children}
+              </h2>
+            ),
+            h3: ({ children }) => (
+              <h3 className="text-lg font-bold text-gray-700 mt-6 mb-2">
+                {children}
+              </h3>
+            ),
+            h4: ({ children }) => (
+              <h4 className="text-base font-semibold text-gray-600 mt-4 mb-2">
+                {children}
+              </h4>
+            ),
+            p: ({ children }) => (
+              <p className="text-gray-600 leading-relaxed mb-3">{children}</p>
+            ),
+            ul: ({ children }) => (
+              <ul className="list-disc list-inside mb-4 space-y-1 text-gray-600 ml-2">
+                {children}
+              </ul>
+            ),
+            ol: ({ children }) => (
+              <ol className="list-decimal list-inside mb-4 space-y-1 text-gray-600 ml-2">
+                {children}
+              </ol>
+            ),
+            li: ({ children }) => (
+              <li className="text-gray-600">{children}</li>
+            ),
+            blockquote: ({ children }) => (
+              <blockquote className="border-l-4 border-ultimate_blue pl-4 py-1 my-4 text-gray-500 italic">
+                {children}
+              </blockquote>
+            ),
+            hr: () => <hr className="my-6 border-gray-200" />,
+            a: ({ href, children }) => (
+              <a
+                href={href}
+                className="text-ultimate_blue hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {children}
+              </a>
+            ),
+          }}
+        >
+          {content}
+        </Markdown>
       </div>
     </div>
   );

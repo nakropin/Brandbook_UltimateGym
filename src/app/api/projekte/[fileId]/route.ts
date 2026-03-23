@@ -3,7 +3,6 @@ import { getToken } from "next-auth/jwt";
 import matter from "gray-matter";
 import { ProjectDetail } from "@/types/types";
 
-// Validate fileId format: alphanumeric, hyphens, underscores only
 function isValidFileId(fileId: string): boolean {
   return /^[a-zA-Z0-9_-]+$/.test(fileId) && fileId.length > 0;
 }
@@ -13,6 +12,10 @@ function coerceDate(value: unknown): string {
   if (typeof value === "string") return value;
   return "";
 }
+
+// In-memory cache per fileId
+const cache = new Map<string, { data: ProjectDetail; timestamp: number }>();
+const CACHE_TTL = 120_000; // 2 minutes
 
 export async function GET(
   req: NextRequest,
@@ -38,27 +41,39 @@ export async function GET(
     );
   }
 
+  // Return cached data if fresh
+  const cached = cache.get(fileId);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+    return NextResponse.json(cached.data);
+  }
+
   const accessToken = token.accessToken as string;
+  const headers = { Authorization: `Bearer ${accessToken}` };
 
   try {
-    // First verify the file belongs to the expected folder
-    const metaRes = await fetch(
-      `https://www.googleapis.com/drive/v3/files/${fileId}?fields=id,name,parents&supportsAllDrives=true`,
-      { headers: { Authorization: `Bearer ${accessToken}` } }
-    );
+    // Fetch metadata and content in parallel
+    const [metaRes, contentRes] = await Promise.all([
+      fetch(
+        `https://www.googleapis.com/drive/v3/files/${fileId}?fields=id,name,parents&supportsAllDrives=true`,
+        { headers }
+      ),
+      fetch(
+        `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&supportsAllDrives=true`,
+        { headers }
+      ),
+    ]);
 
-    if (!metaRes.ok) {
+    if (!metaRes.ok || !contentRes.ok) {
       return NextResponse.json(
         { error: "Projekt nicht gefunden" },
         { status: 404 }
       );
     }
 
-    const meta = (await metaRes.json()) as {
-      id: string;
-      name: string;
-      parents?: string[];
-    };
+    const [meta, rawContent] = await Promise.all([
+      metaRes.json() as Promise<{ id: string; name: string; parents?: string[] }>,
+      contentRes.text(),
+    ]);
 
     // Security check: file must be in the expected folder
     if (!meta.parents?.includes(folderId)) {
@@ -68,17 +83,6 @@ export async function GET(
       );
     }
 
-    // Download file content
-    const contentRes = await fetch(
-      `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&supportsAllDrives=true`,
-      { headers: { Authorization: `Bearer ${accessToken}` } }
-    );
-
-    if (!contentRes.ok) {
-      throw new Error(`Failed to fetch file content`);
-    }
-
-    const rawContent = await contentRes.text();
     const { data: frontmatter, content } = matter(rawContent);
 
     const project: ProjectDetail = {
@@ -96,9 +100,12 @@ export async function GET(
           frontmatter.cloud.startsWith("https://drive.google.com/")
             ? frontmatter.cloud
             : "",
+        status: frontmatter.status || "offen",
       },
       content,
     };
+
+    cache.set(fileId, { data: project, timestamp: Date.now() });
 
     return NextResponse.json(project);
   } catch {

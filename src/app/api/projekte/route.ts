@@ -119,6 +119,7 @@ export async function GET(req: NextRequest) {
               frontmatter.cloud.startsWith("https://drive.google.com/")
                 ? frontmatter.cloud
                 : "",
+            status: frontmatter.status || "offen",
           } satisfies ProjectListItem;
         })
       );

@@ -59,6 +59,7 @@ export interface ProjectListItem {
   erstellt: string;
   fällig: string;
   cloud: string;
+  status: string;
 }
 
 export interface ProjectDetail {
