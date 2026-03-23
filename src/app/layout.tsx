@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
           <main className="flex-1 overflow-y-auto transition-all duration-300">
             <div className="p-4 pr-8 overflow-x-hidden">
-              <SubHeader title={title?.title} />
+              <SubHeader title={title?.title} variant={pathname === "/brandstory" ? "light" : "dark"} />
               <SessionProvider>{children}</SessionProvider>
             </div>
           </main>

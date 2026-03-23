@@ -2,7 +2,7 @@ import NextAuth, { AuthOptions, Account, Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -35,7 +35,6 @@ export const authOptions: AuthOptions = {
       }
 
       // Token ist abgelaufen - Refresh Token verwenden
-      console.log("Token abgelaufen, refreshe...");
       try {
         const response = await fetch("https://oauth2.googleapis.com/token", {
           method: "POST",
@@ -49,7 +48,6 @@ export const authOptions: AuthOptions = {
         });
 
         if (!response.ok) {
-          console.error("Token refresh fehlgeschlagen:", response.status);
           throw new Error("Token refresh failed");
         }
 
@@ -61,8 +59,7 @@ export const authOptions: AuthOptions = {
           refreshToken: newTokens.refresh_token ?? token.refreshToken,
           expiresAt: Math.floor(Date.now() / 1000) + newTokens.expires_in,
         };
-      } catch (error) {
-        console.error("Fehler beim Refresh Token:", error);
+      } catch {
         return token;
       }
     },

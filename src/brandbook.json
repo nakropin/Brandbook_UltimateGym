@@ -113,21 +113,21 @@
     "Augsburg": [
       {
         "name": "Lampenhöhe",
-        "hight": "3,6m"
+        "height": "3,6m"
       },
       {
         "name": "Querbalkenhöhe",
-        "hight": "3,8m"
+        "height": "3,8m"
       },
       {
         "name": "Maximale Hallenhöhe (An der Spitze)",
-        "hight": "4,65m"
+        "height": "4,65m"
       }
     ],
     "Königsbrunn": [
       {
         "name": "Lampenhöhe",
-        "hight": "3,6m"
+        "height": "3,6m"
       }
     ]
   },

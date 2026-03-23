@@ -36,6 +36,20 @@ export interface FullCalendarEvent {
   end?: string;
 }
 
+export interface CalendarEvent {
+  id: string;
+  summary?: string;
+  start: {
+    dateTime?: string;
+    date?: string;
+  };
+  end: {
+    dateTime?: string;
+    date?: string;
+  };
+  [key: string]: unknown;
+}
+
 export interface Logo {
   name: string;
   alt: string;
