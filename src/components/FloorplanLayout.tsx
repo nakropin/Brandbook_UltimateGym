@@ -3,7 +3,7 @@ import FloorplanInfo from "@/components/FloorplanInfo";
 
 interface FloorplanLayoutProps {
   location: string;
-  floorplanData: Array<{ name: string; hight: string }>;
+  floorplanData: Array<{ name: string; height: string }>;
 }
 
 export default function FloorplanLayout({
@@ -34,7 +34,7 @@ export default function FloorplanLayout({
         </div>
         <div className="flex-2 flex flex-col gap-4">
           {floorplanData.map((e) => (
-            <FloorplanInfo key={e.name} name={e.name} hight={e.hight} />
+            <FloorplanInfo key={e.name} name={e.name} height={e.height} />
           ))}
         </div>
       </div>

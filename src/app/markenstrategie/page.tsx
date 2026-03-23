@@ -76,12 +76,8 @@ export default function Marketingstrategie() {
       }
 
       const data = (await response.json()) as CalendarEvent[];
-      console.log(`✅ Loaded ${data.length} calendar events`);
       return data.map(transformToFullCalendarEvent);
     } catch (err) {
-      const errorMessage =
-        err instanceof Error ? err.message : "Unbekannter Fehler";
-      console.error("Calendar Events Fehler:", errorMessage);
       throw err;
     }
   }, [session?.accessToken, calendarIds]);
@@ -98,12 +94,8 @@ export default function Marketingstrategie() {
       }
 
       const data = (await response.json()) as FullCalendarEvent[];
-      console.log(`✅ Loaded ${data.length} Schulferien events`);
       return data;
     } catch (err) {
-      const errorMessage =
-        err instanceof Error ? err.message : "Unbekannter Fehler";
-      console.error("Schulferien Fehler:", errorMessage);
       throw err;
     }
   }, []);
@@ -135,12 +127,10 @@ export default function Marketingstrategie() {
       });
 
       setEvents(allEvents);
-      console.log(`✅ Total events: ${allEvents.length}`);
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Unbekannter Fehler";
       setError(errorMessage);
-      console.error("Fehler beim Laden aller Events:", err);
     } finally {
       setLoading(false);
     }
