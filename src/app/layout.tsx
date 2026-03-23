@@ -35,16 +35,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       `}
     >
       <body className="h-screen w-screen font-akzidenz font-normal flex flex-col">
-        <Header />
-        <div className="flex flex-row flex-1 overflow-hidden">
-          <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
-          <main className="flex-1 overflow-y-auto transition-all duration-300">
-            <div className="p-4 pr-8 overflow-x-hidden">
-              <SubHeader title={title?.title} variant={pathname === "/brandstory" ? "light" : "dark"} />
-              <SessionProvider>{children}</SessionProvider>
-            </div>
-          </main>
-        </div>
+        <SessionProvider>
+          <Header />
+          <div className="flex flex-row flex-1 overflow-hidden">
+            <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+            <main className="flex-1 overflow-y-auto transition-all duration-300">
+              <div className="p-4 pr-8 overflow-x-hidden">
+                <SubHeader title={title?.title} variant={pathname === "/brandstory" ? "light" : "dark"} />
+                {children}
+              </div>
+            </main>
+          </div>
+        </SessionProvider>
       </body>
     </html>
   );

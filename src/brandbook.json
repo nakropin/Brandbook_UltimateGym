@@ -65,6 +65,12 @@
       "title": "Social Media",
       "url": "/socialmedia",
       "icon": "📱"
+    },
+    {
+      "id": 11,
+      "title": "Projekte",
+      "url": "/projekte",
+      "icon": "📋"
     }
   ],
   "colors": [
