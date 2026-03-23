@@ -1,7 +1,5 @@
+import UnderConstruction from "@/components/UnderConstruction";
+
 export default function Bildsprache() {
-  return (
-    <div>
-      <h1>UNDER CONSTRUCTION</h1>
-    </div>
-  );
+  return <UnderConstruction />;
 }
