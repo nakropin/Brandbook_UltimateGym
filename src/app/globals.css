@@ -30,3 +30,21 @@
     font-weight: 400;
   }
 }
+
+/* Fix calendar cell height to prevent jumping between months */
+.fc-daygrid-body,
+.fc-scrollgrid-sync-table {
+  height: 100% !important;
+}
+
+.fc-daygrid-day {
+  height: 100px !important;
+  max-height: 100px !important;
+  overflow: hidden;
+}
+
+.fc-daygrid-day-frame {
+  height: 100px !important;
+  max-height: 100px !important;
+  overflow: hidden;
+}

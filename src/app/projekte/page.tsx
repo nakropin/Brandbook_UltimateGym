@@ -2,6 +2,8 @@
 
 import { useSession } from "next-auth/react";
 import { useState, useEffect, useCallback, useMemo } from "react";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
 import LoginPrompt from "@/components/LoginPrompt";
 import ProjectModal from "@/components/ProjectModal";
 import { ProjectListItem } from "@/types/types";
@@ -20,7 +22,19 @@ const KATEGORIE_COLORS: Record<string, string> = {
   MSC: "bg-gray-500 text-white",
 };
 
-type SortKey = "id" | "titel" | "kategorie" | "verantwortlicher" | "erstellt" | "fällig" | "status";
+const KATEGORIE_HEX: Record<string, string> = {
+  UG: "#5ba8ef",
+  UM: "#5ba8ef",
+  BJJ: "#5c8d58",
+  KM: "#b23535",
+  UF: "#5c8d58",
+  MMA: "#b23535",
+  MT: "#b23535",
+  KB: "#cca94f",
+  BX: "#cca94f",
+  FB: "#cca94f",
+  MSC: "#6b7280",
+};
 
 const STATUS_COLORS: Record<string, string> = {
   offen: "bg-gray-200 text-gray-700",
@@ -28,7 +42,10 @@ const STATUS_COLORS: Record<string, string> = {
   "in review": "bg-boxing_yellow/20 text-boxing_yellow",
   abgeschlossen: "bg-fitness_green/20 text-fitness_green",
 };
+
+type SortKey = "id" | "titel" | "kategorie" | "verantwortlicher" | "erstellt" | "fällig" | "status";
 type SortDir = "asc" | "desc";
+type ViewMode = "list" | "calendar";
 
 function formatDate(dateStr: string): string {
   if (!dateStr) return "–";
@@ -53,6 +70,7 @@ export default function Projekte() {
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [filterKategorie, setFilterKategorie] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [viewMode, setViewMode] = useState<ViewMode>("list");
 
   const loadProjects = useCallback(async () => {
     if (!session?.accessToken) return;
@@ -112,6 +130,22 @@ export default function Projekte() {
     return result;
   }, [projects, filterKategorie, searchQuery, sortKey, sortDir]);
 
+  const calendarEvents = useMemo(
+    () =>
+      filteredAndSorted
+        .filter((p) => p.fällig)
+        .map((p) => ({
+          id: p.fileId,
+          title: p.id,
+          start: p.fällig,
+          allDay: true,
+          backgroundColor: KATEGORIE_HEX[p.kategorie] || "#6b7280",
+          borderColor: KATEGORIE_HEX[p.kategorie] || "#6b7280",
+          extendedProps: { fileId: p.fileId },
+        })),
+    [filteredAndSorted]
+  );
+
   function handleSort(key: SortKey) {
     if (sortKey === key) {
       setSortDir((d) => (d === "asc" ? "desc" : "asc"));
@@ -144,7 +178,7 @@ export default function Projekte() {
         </div>
       )}
 
-      {/* Filter bar */}
+      {/* Filter bar + View Toggle */}
       <div className="flex gap-3 mb-4">
         <input
           type="text"
@@ -165,13 +199,35 @@ export default function Projekte() {
             </option>
           ))}
         </select>
+        <div className="flex border border-gray-300 rounded-lg overflow-hidden">
+          <button
+            onClick={() => setViewMode("list")}
+            className={`px-3 py-2 text-sm transition ${
+              viewMode === "list"
+                ? "bg-ultimate_blue text-white"
+                : "bg-white text-gray-600 hover:bg-gray-50"
+            }`}
+          >
+            Liste
+          </button>
+          <button
+            onClick={() => setViewMode("calendar")}
+            className={`px-3 py-2 text-sm transition ${
+              viewMode === "calendar"
+                ? "bg-ultimate_blue text-white"
+                : "bg-white text-gray-600 hover:bg-gray-50"
+            }`}
+          >
+            Kalender
+          </button>
+        </div>
       </div>
 
       {loading ? (
         <div className="flex justify-center py-12">
           <p className="text-gray-600">Projekte werden geladen...</p>
         </div>
-      ) : (
+      ) : viewMode === "list" ? (
         <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
           <table className="w-full text-sm">
             <thead>
@@ -280,6 +336,24 @@ export default function Projekte() {
               )}
             </tbody>
           </table>
+        </div>
+      ) : (
+        <div className="bg-white border border-gray-200 rounded-lg p-4">
+          <FullCalendar
+            plugins={[dayGridPlugin]}
+            initialView="dayGridMonth"
+            events={calendarEvents}
+            locale="de"
+            firstDay={1}
+            fixedWeekCount={false}
+            height="auto"
+            dayMaxEvents={2}
+            eventClick={(info) => {
+              const fileId = info.event.extendedProps.fileId as string;
+              if (fileId) setSelectedFileId(fileId);
+            }}
+            eventClassNames={() => "cursor-pointer"}
+          />
         </div>
       )}
 
